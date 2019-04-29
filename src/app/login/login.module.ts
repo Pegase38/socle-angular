@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core';
+
+import { SharedModule } from '../shared/shared.module';
+import { LoginRoutingModule } from './login-routing.module';
+import { LoginComponent } from './containers/login/login.component';
+
+@NgModule({
+  declarations: [LoginComponent],
+  imports: [SharedModule, LoginRoutingModule],
+  exports: [LoginComponent]
+})
+export class LoginModule {}

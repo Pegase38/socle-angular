@@ -1,0 +1,22 @@
+<header>
+  <app-header></app-header>
+</header>
+
+<main>
+  <!--[ngClass]="{'close-aside': head.open }"-->
+  <div class="position-fixed shadow"></div>
+  <aside>
+    <div class="scroller">
+      <app-nav></app-nav>
+    </div>
+  </aside>
+
+  <div class="page">
+    <div class="contents">
+      <router-outlet></router-outlet>
+    </div>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </div>
+</main>

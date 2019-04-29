@@ -1,0 +1,8 @@
+@import '~src/variables';
+
+.header {
+  height: $header-height;
+  .title {
+    padding: 0 $gutter;
+  }
+}
