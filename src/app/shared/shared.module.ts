@@ -1,9 +1,9 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -18,11 +18,11 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 export class SharedModule {
   static MODULE_LIST = [
     CommonModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     MenuModule,
     ToolbarModule,
-    PanelModule
+    PanelModule,
+    ButtonModule
   ];
 }

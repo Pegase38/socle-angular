@@ -12,7 +12,15 @@ import { UserinterfaceModule } from './userinterface/userinterface.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CoreModule, SharedModule, UserinterfaceModule, LoginModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CoreModule,
+    SharedModule,
+    UserinterfaceModule,
+    LoginModule,
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

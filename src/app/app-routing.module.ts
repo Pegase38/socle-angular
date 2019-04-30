@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { IsUserSignedInGuardGuard } from './core/guard/is-user-signed-in-guard.guard';
 
 const routes: Routes = [
   {
@@ -10,11 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    canActivate: [IsUserSignedInGuardGuard],
     loadChildren: './home/home.module#HomeModule'
   },
   {
-    path: '**',
+    path: '404',
     component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
   }
 ];
 
