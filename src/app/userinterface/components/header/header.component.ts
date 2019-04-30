@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-  title = 'My Application';
+  @Input() username: string;
+  @Input() isSignedIn: boolean;
+  @Output() clickLogin = new EventEmitter();
+  @Input() appName: string;
   constructor() {}
 
   ngOnInit() {}
+
+  onClickLogin() {
+    this.clickLogin.emit();
+  }
 }

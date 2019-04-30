@@ -1,9 +1,10 @@
 <div class="p-grid p-dir-col-rev header">
   <div class="title">
-    <h1>{{ title }}</h1>
+    <h1>{{ appName }}</h1>
   </div>
 
   <div class="p-col p-col-align-end">
-    <p-button label="Login"></p-button>
+    <p-button label="Login" *ngIf="!isSignedIn" (click)="onClickLogin()"></p-button>
+    <p *ngIf="isSignedIn">Bonjour {{ username }}</p>
   </div>
 </div>

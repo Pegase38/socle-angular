@@ -35,24 +35,15 @@ export class SessionService {
   }
 
   getToken(): Observable<string> {
-    return this.state$.pipe(
-      first(),
-      map(state => state.token)
-    );
+    return this.state$.pipe(map(state => state.token));
   }
 
   getUserId(): Observable<string> {
-    return this.state$.pipe(
-      first(),
-      map(state => state.userId)
-    );
+    return this.state$.pipe(map(state => state.userId));
   }
 
   isSignedIn(): Observable<boolean> {
-    return this.state$.pipe(
-      first(),
-      map(state => state.isSignedIn())
-    );
+    return this.state$.pipe(map(state => state.isSignedIn()));
   }
 
   onSignin(): Observable<SessionState> {

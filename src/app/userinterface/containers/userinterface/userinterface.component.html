@@ -1,5 +1,10 @@
 <header>
-  <app-header></app-header>
+  <app-header
+    [appName]="appName"
+    [isSignedIn]="isSignedIn$ | async"
+    [username]="loggedUsername$ | async"
+    (clickLogin)="onClickLogin()"
+  ></app-header>
 </header>
 
 <main>
@@ -7,7 +12,7 @@
   <div class="position-fixed shadow"></div>
   <aside>
     <div class="scroller">
-      <app-nav></app-nav>
+      <app-nav [items]="items"></app-nav>
     </div>
   </aside>
 
