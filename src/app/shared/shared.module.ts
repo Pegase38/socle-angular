@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -21,8 +23,10 @@ export class SharedModule {
     HttpClientModule,
     ReactiveFormsModule,
     MenuModule,
+    ToastModule,
     ToolbarModule,
     PanelModule,
-    ButtonModule
+    ButtonModule,
+    ProgressSpinnerModule
   ];
 }

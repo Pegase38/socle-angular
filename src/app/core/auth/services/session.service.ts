@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { filter, map, first, distinctUntilChanged, skip } from 'rxjs/operators';
+import { filter, map, distinctUntilChanged, skip } from 'rxjs/operators';
 
 import { SessionState } from 'src/app/shared/models/session-state';
 

@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 import { MenuItem } from 'primeng/components/common/menuitem';
 
-import { SessionService } from 'src/app/core/services/session.service';
+import { SessionService } from 'src/app/core/auth/services/session.service';
+import { ConfigService } from 'src/app/core/config/config.service';
 
 @Component({
   selector: 'app-userinterface',
@@ -27,7 +28,7 @@ export class UserinterfaceComponent implements OnInit {
     }
   ];
 
-  constructor(private session: SessionService, private router: Router) {}
+  constructor(private session: SessionService, private router: Router, private config: ConfigService) {}
 
   ngOnInit() {
     this.isSignedIn$ = this.session.isSignedIn();
@@ -35,6 +36,6 @@ export class UserinterfaceComponent implements OnInit {
   }
 
   onClickLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(this.config.getLoginRoute());
   }
 }

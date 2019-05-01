@@ -7,20 +7,11 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
 import { UserinterfaceModule } from './userinterface/userinterface.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    CoreModule,
-    SharedModule,
-    UserinterfaceModule,
-    LoginModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, UserinterfaceModule, AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { SessionService } from '../services/session.service';
+import { ConfigService } from '../../config/config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IsUserSignedInGuardGuard implements CanActivate {
-  constructor(private session: SessionService, private router: Router) {}
+  constructor(private session: SessionService, private router: Router, private config: ConfigService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -18,7 +19,7 @@ export class IsUserSignedInGuardGuard implements CanActivate {
     return this.session.isSignedIn().pipe(
       tap(isSignedIn => {
         if (isSignedIn !== true) {
-          this.router.navigate(['/login']);
+          this.router.navigate(this.config.getLoginRoute());
         }
       })
     );
