@@ -12,7 +12,7 @@ export class OverlayInterceptor implements HttpInterceptor {
     this.overlayService.showOverlay();
 
     return next.handle(req).pipe(
-      delay(5000),
+      delay(1000), // TODO to remove
       finalize(() => {
         this.overlayService.hideOverlay();
       })

@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
 
 import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { ConfigService } from '../../../config/config.service';
-import { Credential } from 'src/app/shared/models/credential';
+import { Credential } from 'src/app/shared/models/auth/credential';
 import { SessionService } from 'src/app/core/auth/services/session.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -25,8 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private session: SessionService,
     private router: Router,
     private config: ConfigService,
-    private messageService: MessageService,
-    private http: HttpClient
+    private messageService: MessageService
   ) {
     this.loginForm = new FormGroup({
       username: new FormControl(),
@@ -45,9 +44,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLogin() {
-    this.http.get('assets/test.json').subscribe(); // TODO remove
-    this.auth.signIn(new Credential(this.loginForm.value));
-    // TODO gestion des erreurs
+    this.auth
+      .signIn(new Credential(this.loginForm.value))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {}, () => this.messageService.add({ severity: 'error', summary: 'Login error' }));
   }
 
   ngOnDestroy() {

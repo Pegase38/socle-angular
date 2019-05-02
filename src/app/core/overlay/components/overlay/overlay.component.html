@@ -1,3 +1,6 @@
-<div *ngIf="displayed$ | async">
-  <p-progressSpinner></p-progressSpinner>
+<div class="overlay" *ngIf="displayed$ | async">
+  <div class="overlay-background"></div>
+  <div class="overlay-content">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
 </div>
